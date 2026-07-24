@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, rgba(0, 0, 0, 0) 0px, rgba(11, 8, 19, 0.5) 100%);
+    background-attachment: fixed;
+  }
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  @apply bg-slate-900/60 backdrop-blur-xl border border-slate-800/80 shadow-2xl;
+}
+
+.glass-card {
+  @apply bg-slate-900/40 backdrop-blur-md border border-slate-800/60 transition-all duration-300 hover:border-violet-500/30;
+}
+
+.glass-input {
+  @apply bg-slate-950/50 border border-slate-800 rounded-lg px-4 py-2.5 text-slate-100 focus:outline-none focus:ring-2 focus:ring-violet-500/50 focus:border-violet-500/80 transition-all placeholder:text-slate-500;
+}
+
+.glass-btn-primary {
+  @apply bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-medium px-5 py-2.5 rounded-lg transition-all shadow-lg shadow-violet-500/20 active:scale-[0.98];
+}
+
+.glass-btn-secondary {
+  @apply bg-slate-900/80 border border-slate-800 hover:bg-slate-800 text-slate-200 font-medium px-5 py-2.5 rounded-lg transition-all active:scale-[0.98];
+}
+
+.glass-btn-danger {
+  @apply bg-red-950/40 border border-red-900/50 hover:bg-red-900/30 text-red-200 font-medium px-5 py-2.5 rounded-lg transition-all active:scale-[0.98];
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-slate-950;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-800 rounded-full hover:bg-slate-700;
+}
+
+/* Micro-animations */
+@keyframes pulse-slow {
+  0%, 100% { transform: scale(1); opacity: 0.2; }
+  50% { transform: scale(1.05); opacity: 0.3; }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
