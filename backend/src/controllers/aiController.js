@@ -59,6 +59,7 @@ export const generateEventPlan = async (req, res) => {
       
       const prompt = `
         You are an elite AI Event Planner. Generate a comprehensive event plan, timeline, brief, budget suggestions, communications, and contingencies.
+        All currency amounts, budget allocations, and pricing metrics MUST be calculated in Indian Rupees (INR, ₹).
         Here are the event requirements:
         - Title: "${event.title}"
         - Type: "${event.type}"
@@ -66,7 +67,7 @@ export const generateEventPlan = async (req, res) => {
         - Date/Time: "${event.date}"
         - Venue: "${event.venue}"
         - Capacity: ${event.capacity} people
-        - Budget: $${event.budget}
+        - Budget: ₹${event.budget} INR
         - Target Audience: "${event.audience}"
 
         Return a single JSON object. Ensure it has EXACTLY the following keys and structure:

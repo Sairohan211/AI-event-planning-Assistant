@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import api from '../api';
 import { useAuth } from '../context/AuthContext';
 import { 
-  Sparkles, Calendar, MapPin, Users, DollarSign, Clock, Shield, CheckSquare, 
+  Sparkles, Calendar, MapPin, Users, IndianRupee, Clock, Shield, CheckSquare, 
   Truck, Clipboard, UserCheck, AlertTriangle, ArrowLeft, Plus, Check, Play, Edit, 
   Trash2, X, AlertCircle, RefreshCw, Send, CheckCircle2, Circle
 } from 'lucide-react';
@@ -508,10 +508,10 @@ const EventDetail = () => {
           </div>
 
           <div className="flex items-center space-x-2 text-xs">
-            <DollarSign className="h-4.5 w-4.5 text-emerald-400" />
+            <IndianRupee className="h-4.5 w-4.5 text-emerald-400" />
             <div>
               <div className="text-[10px] text-slate-500 uppercase">Budget Goal</div>
-              <div className="font-medium text-slate-200">${Number(event.budget).toLocaleString()}</div>
+              <div className="font-medium text-slate-200">₹{Number(event.budget).toLocaleString()}</div>
             </div>
           </div>
         </div>
@@ -783,7 +783,7 @@ const EventDetail = () => {
                         </Pie>
                         <Tooltip 
                           contentStyle={{ backgroundColor: '#090d16', border: '1px solid #1e293b', borderRadius: '8px' }}
-                          formatter={(value) => [`$${value.toLocaleString()}`, 'Amount']}
+                          formatter={(value) => [`₹${value.toLocaleString()}`, 'Amount']}
                         />
                       </PieChart>
                     </ResponsiveContainer>
@@ -795,7 +795,7 @@ const EventDetail = () => {
                           <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: COLORS[index % COLORS.length] }}></span>
                           <span className="text-slate-350">{item.category} ({item.percentage}%)</span>
                         </div>
-                        <span className="font-medium text-slate-200">${item.amount}</span>
+                        <span className="font-medium text-slate-200">₹{item.amount}</span>
                       </div>
                     ))}
                   </div>
@@ -1300,7 +1300,7 @@ const EventDetail = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="flex flex-col">
-                      <label className="text-[10px] text-slate-400 uppercase font-semibold mb-1">Quote Valuation ($)</label>
+                      <label className="text-[10px] text-slate-400 uppercase font-semibold mb-1">Quote Valuation (₹)</label>
                       <input
                         type="number"
                         required
@@ -1353,7 +1353,7 @@ const EventDetail = () => {
                           </span>
                         </div>
                         <div className="flex items-center space-x-4 text-xs text-slate-400 pt-1">
-                          <span>Quote: <strong className="text-slate-200">${Number(vendor.quotation).toLocaleString()}</strong></span>
+                          <span>Quote: <strong className="text-slate-200">₹{Number(vendor.quotation).toLocaleString()}</strong></span>
                           {vendor.contact_email && (
                             <span>Email: <span className="text-slate-400">{vendor.contact_email}</span></span>
                           )}
@@ -1418,12 +1418,12 @@ const EventDetail = () => {
                 <div className="space-y-4">
                   <div className="p-4 bg-slate-950/50 border border-slate-850 rounded-xl">
                     <div className="text-xs text-slate-400 font-medium">Estimated Event Budget:</div>
-                    <div className="text-2xl font-extrabold text-white mt-1">${Number(event.budget).toLocaleString()}</div>
+                    <div className="text-2xl font-extrabold text-white mt-1">₹{Number(event.budget).toLocaleString()}</div>
                   </div>
 
                   <div className="p-4 bg-slate-950/50 border border-slate-850 rounded-xl">
                     <div className="text-xs text-slate-400 font-medium">Approved Vendor Expenses:</div>
-                    <div className="text-2xl font-extrabold text-violet-400 mt-1">${totalApprovedQuotes.toLocaleString()}</div>
+                    <div className="text-2xl font-extrabold text-violet-400 mt-1">₹{totalApprovedQuotes.toLocaleString()}</div>
                   </div>
 
                   <div className="p-4 bg-slate-950/50 border border-slate-850 rounded-xl">
@@ -1431,7 +1431,7 @@ const EventDetail = () => {
                     <div className={`text-2xl font-extrabold mt-1 ${
                       Number(event.budget) - totalApprovedQuotes >= 0 ? 'text-emerald-450' : 'text-red-400'
                     }`}>
-                      ${(Number(event.budget) - totalApprovedQuotes).toLocaleString()}
+                      ₹{(Number(event.budget) - totalApprovedQuotes).toLocaleString()}
                     </div>
                   </div>
 

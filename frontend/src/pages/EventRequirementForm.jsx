@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../api';
-import { Sparkles, Calendar, DollarSign, Users, Shield, Plus, Trash2, ArrowLeft } from 'lucide-react';
+import { Sparkles, Calendar, IndianRupee, Users, Shield, Plus, Trash2, ArrowLeft } from 'lucide-react';
 
 const EventRequirementForm = () => {
   const navigate = useNavigate();
@@ -215,10 +215,10 @@ const EventRequirementForm = () => {
               </div>
 
               <div className="flex flex-col">
-                <label className="text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wider">Budget Allocation ($)</label>
+                <label className="text-xs font-semibold text-slate-400 mb-1.5 uppercase tracking-wider">Budget Allocation (₹)</label>
                 <div className="relative">
                   <span className="absolute inset-y-0 left-0 pl-3.5 flex items-center text-slate-500">
-                    <DollarSign className="h-4 w-4" />
+                    <IndianRupee className="h-4 w-4" />
                   </span>
                   <input
                     type="number"

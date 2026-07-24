@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import api from '../api';
 import { useAuth } from '../context/AuthContext';
 import { 
-  Plus, Search, Calendar, MapPin, DollarSign, Users, 
+  Plus, Search, Calendar, MapPin, IndianRupee, Users, 
   Copy, Archive, Trash2, Download, AlertTriangle, Play 
 } from 'lucide-react';
 
@@ -132,7 +132,7 @@ const Dashboard = () => {
 
         <div className="glass-panel rounded-2xl p-6">
           <div className="text-sm text-slate-400 font-medium uppercase tracking-wider">Combined budget Allocation</div>
-          <div className="text-3xl font-extrabold text-white mt-2">${totalBudget.toLocaleString()}</div>
+          <div className="text-3xl font-extrabold text-white mt-2">₹{totalBudget.toLocaleString()}</div>
           <div className="text-xs text-indigo-400 mt-1">Funding resource checklist active</div>
         </div>
 
@@ -248,8 +248,8 @@ const Dashboard = () => {
                     <span>Up to {event.capacity} guests</span>
                   </div>
                   <div className="flex items-center space-x-2 text-xs text-slate-400">
-                    <DollarSign className="h-4 w-4 text-slate-500 shrink-0" />
-                    <span>Budget: ${Number(event.budget).toLocaleString()}</span>
+                    <IndianRupee className="h-4 w-4 text-slate-500 shrink-0" />
+                    <span>Budget: ₹{Number(event.budget).toLocaleString()}</span>
                   </div>
                 </div>
               </div>
